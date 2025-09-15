@@ -1,26 +1,24 @@
 terraform {
   required_providers {
     docker = {
-      source  = "kreuzwerker/docker"
-      version = "~> 3.0.1"
+      source  = "abh80/docker"
+      version = "1.0.1"
     }
   }
 }
 
 provider "docker" {
-  host = "npipe:////.//pipe//docker_engine"
+  
 }
 
-resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = false
+resource "docker_network" "app_net" {
+  name = "app_net"
 }
 
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.image_id
-  name  = "tutorial"
-  ports {
-    internal = 80
-    external = 8000
-  }
+resource "docker_network" "persistence_net" {
+  name = "persistence_net"
+}
+
+resource "docker_network" "monitor_net" {
+  name = "monitor_net"
 }
