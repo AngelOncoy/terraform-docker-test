@@ -12,7 +12,7 @@ resource "docker_container" "redis" {
 
 
 resource "docker_container" "postgres" {
-  image = "postgres:13"
+  image = "postgres"
   name  = "postgres_13-trixie"
 
   env = [
