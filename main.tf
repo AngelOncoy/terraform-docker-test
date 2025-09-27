@@ -1,11 +1,12 @@
 terraform {
   required_providers {
     docker = {
-      source  = "abh80/docker"
-      version = "1.0.1"
+      source = "kreuzwerker/docker"
+      version = "3.6.2"
     }
   }
 }
+
 
 provider "docker" {
 
